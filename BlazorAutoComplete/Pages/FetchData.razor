@@ -22,10 +22,12 @@
 
 <p>This component demonstrates fetching data from a service.</p>
 <input @bind="SearchWord" @bind:event="oninput" />
+<br />
+
 <div class="autoComplete">
     @foreach (var item in options)
     {
-        if (item.ToUpper().Contains(SearchWord.ToUpper()))
+        if (item.ToUpper().Contains(SearchWord.ToUpper()) && SearchWord.Length > 2)
         {
             <section @onclick="() => SearchWord = item">@item</section>
         }
